@@ -1,0 +1,12 @@
+services:
+  remote-code:
+    build: .
+    container_name: remote-code
+    restart: unless-stopped
+    networks:
+      - remote-code-network
+
+networks:
+  remote-code-network:
+    driver: bridge
+    name: remote-code-network
