@@ -1,1 +1,3 @@
 ollama/ollama-data/*
+remote-code/happier-data/*
+!remote-code/happier-data/.gitkeep

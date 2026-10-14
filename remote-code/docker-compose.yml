@@ -2,11 +2,16 @@ services:
   remote-code:
     build: .
     container_name: remote-code
+    volumes:
+      - ./happier-data:/root/.happier
     restart: unless-stopped
     networks:
       - remote-code-network
+      - ollama-network
 
 networks:
   remote-code-network:
     driver: bridge
     name: remote-code-network
+  ollama-network:
+    external: true

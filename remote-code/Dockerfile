@@ -10,11 +10,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-# install opencode (happier) non-interactively
+# install happier non-interactively
 ENV HAPPIER_NONINTERACTIVE=1
 RUN curl -fsSL https://happier.dev/install | bash
 
-ENV PATH="/root/.local/bin:${PATH}"
+# install opencode
+RUN curl -fsSL https://opencode.ai/install | bash
+
+ENV PATH="/root/.local/bin:/root/.opencode/bin:${PATH}"
+
+# opencode config pointing at the ollama service (global config)
+COPY opencode.json /root/.config/opencode/opencode.json
+
+ENV OLLAMA_CONTEXT_LENGTH=1048576
 
 WORKDIR /workspace
 
