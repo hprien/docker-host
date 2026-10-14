@@ -23,7 +23,7 @@ RUN curl -fsSL https://happier.dev/install | bash
 # install opencode
 RUN curl -fsSL https://opencode.ai/install | bash
 
-ENV PATH="/opt/happier:/root/.opencode/bin:${PATH}"
+ENV PATH="/opt/happier/bin:/root/.opencode/bin:${PATH}"
 
 # opencode config pointing at the ollama service (global config)
 COPY opencode.json /root/.config/opencode/opencode.json
@@ -32,4 +32,4 @@ ENV OLLAMA_CONTEXT_LENGTH=1048576
 
 WORKDIR /workspace
 
-CMD ["sleep", "infinity"]
+CMD happier opencode || sleep infinity
