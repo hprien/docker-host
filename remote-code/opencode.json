@@ -3,7 +3,11 @@
   "shell": "/bin/bash",
   "permission": {
     "bash": {
-      "*": "ask"
+      "*": "ask",
+      "git add *": "allow",
+      "git commit *": "allow",
+      "git status": "allow",
+      "git branch": "allow"
     },
     "external_directory": "ask",
     "webfetch": "allow"
