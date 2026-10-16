@@ -5,6 +5,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./.ssh:/root/.ssh
+      - ./workspace:/workspace
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 41111:41111
