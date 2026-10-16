@@ -3,6 +3,8 @@ services:
     build: .
     container_name: remote-code
     restart: unless-stopped
+    volumes:
+      - ./.ssh:/root/.ssh
     ports:
       - 41111:41111
     environment:
